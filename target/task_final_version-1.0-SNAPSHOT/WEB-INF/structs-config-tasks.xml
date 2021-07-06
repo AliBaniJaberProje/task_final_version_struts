@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+        "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+    <form-beans>
+        <form-bean name="tasks" type="com.task_finalVersion.struts.form.TasksForm">
+            <form-property name="taskArrayList" type="java.util.ArrayList">
+
+            </form-property>
+        </form-bean>
+    </form-beans>
+
+    <action-mappings>
+        <action path="/tasks"
+                type="com.task_finalVersion.struts.action.TasksAction"
+                name="tasks"
+                scope="request">
+            <forward name="tasks" path="/pages/tasks.jsp"/>
+
+
+        </action>
+
+    </action-mappings>
+
+</struts-config>

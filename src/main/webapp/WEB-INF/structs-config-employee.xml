@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+        "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+
+    <form-beans>
+        <form-bean name="addEmployeeForm" type="com.task_finalVersion.struts.form.EmployeesForm">
+            <form-property name="firstname" type="java.lang.String"/>
+            <form-property name="lastname" type="java.lang.String" />
+            <form-property name="email" type="java.lang.String"/>
+            <form-property name="birthday" type="java.lang.String"/>
+            <form-property name="role" type="java.lang.String"/>
+        </form-bean>
+    </form-beans>
+
+    <action-mappings>
+        <action path="/addEmployee"
+                type="com.task_finalVersion.struts.action.EmployeeAction"
+                name="addEmployeeForm"
+                scope="request">
+            <forward name="eee" path="/pages/home.jsp"/>
+
+        </action>
+
+    </action-mappings>
+
+</struts-config>

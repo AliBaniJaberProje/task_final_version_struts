@@ -1,0 +1,11 @@
+com/task_finalVersion/data/database/DatabaseDriver.class
+com/task_finalVersion/data/model/Employee.class
+com/task_finalVersion/data/ORM/EmployeeTable.class
+com/task_finalVersion/data/ORM/Auth.class
+com/task_finalVersion/struts/form/HelloWorldForm.class
+com/task_finalVersion/data/database/DatabaseConnection.class
+com/task_finalVersion/struts/action/HelloWorldAction.class
+com/task_finalVersion/data/database/A.class
+com/task_finalVersion/data/ORM/DataBaseQuery.class
+com/task_finalVersion/struts/form/authForm.class
+com/task_finalVersion/struts/action/authAction.class
