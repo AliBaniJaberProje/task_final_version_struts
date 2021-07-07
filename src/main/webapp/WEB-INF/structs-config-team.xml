@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+        "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+
+<!--    <form-beans>-->
+<!--        <form-bean name="team" type="com.task_finalVersion.struts.form.TeamForm">-->
+<!--&lt;!&ndash;            <form-property name="teamArrayList" type="java.util.ArrayList">&ndash;&gt;-->
+
+<!--&lt;!&ndash;            </form-property>&ndash;&gt;-->
+<!--        </form-bean>-->
+<!--    </form-beans>-->
+    <action-mappings>
+        <action path="/team"
+                type="com.task_finalVersion.struts.action.TeamAction"
+                name="team"
+                scope="request">
+
+            <forward name="team" path="/pages/team.jsp"/>
+        </action>
+    </action-mappings>
+
+</struts-config>

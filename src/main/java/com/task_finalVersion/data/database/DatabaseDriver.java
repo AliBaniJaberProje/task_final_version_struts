@@ -15,13 +15,6 @@ public class DatabaseDriver {
                 rs=stmt.executeQuery(SQL);
             else
                 stmt.executeUpdate(SQL);
-//                rs=stmt.getResultSet();
-//                while (rs.next()){
-//                    System.out.println(rs.getInt("id"));
-//                }
-//                System.out.println(x);
-
-
         }catch(Exception e){
             System.out.println(e);
         }

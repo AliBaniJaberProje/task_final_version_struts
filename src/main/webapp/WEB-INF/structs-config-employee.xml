@@ -21,8 +21,15 @@
                 name="addEmployeeForm"
                 scope="request">
             <forward name="eee" path="/pages/home.jsp"/>
-
         </action>
+
+        <action path="/employee"
+                type="com.task_finalVersion.struts.action.EmployeeAction"
+                name="addEmployeeForm"
+                scope="request">
+            <forward name="employee" path="/pages/team.jsp"/>
+        </action>
+
 
     </action-mappings>
 

@@ -16,4 +16,6 @@ public class TasksForm extends ActionForm {
     public void setTaskArrayList(ArrayList<Task> taskArrayList) {
         this.taskArrayList = taskArrayList;
     }
+
+
 }

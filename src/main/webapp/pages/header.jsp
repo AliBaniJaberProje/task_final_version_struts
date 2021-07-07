@@ -11,9 +11,9 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav">
             <a href="tasks.do" class="nav-item nav-link active" style="color: white; margin-right: 10px">Tasks</a>
-            <a href="#" class="nav-item nav-link" style="color: white;margin-right: 10px">Team</a>
+            <a href="team.do" class="nav-item nav-link" style="color: white;margin-right: 10px">Team</a>
 
-            <a href="#" class="nav-item nav-link" style="color: white;margin-right: 10px">Employees</a>
+            <a href="employee.do" class="nav-item nav-link" style="color: white;margin-right: 10px">Employees</a>
 
         </div>
 

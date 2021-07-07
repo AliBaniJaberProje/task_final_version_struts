@@ -3,7 +3,7 @@ package com.task_finalVersion.struts.action;
 import com.task_finalVersion.data.database.DatabaseDriver;
 import com.task_finalVersion.data.model.Task;
 import com.task_finalVersion.struts.form.TasksForm;
-import com.task_finalVersion.struts.form.authForm;
+
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
@@ -20,15 +20,20 @@ public class TasksAction extends Action {
 
     public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 
+        if(request.getMethod().equals("POST")){
+            String info[]=request.getHeader("status").split(",");
+           DatabaseDriver.db_executor("UPDATE Taks SET STATUS = '"+info[0]+"' WHERE id = '"+info[1]+"'", true);
+        }
         TasksForm tasksForm = (TasksForm) form;
         HttpSession session = request.getSession();
 
-        ResultSet resultSet= DatabaseDriver.db_executor("SELECT * FROM `Taks` WHERE id_employee='"+session.getAttribute("id")+"'",false);
+        //select Taks.*,Employees.* from Taks INNER JOIN Employees on Taks.manager=Employees.id where manager=1
+        ResultSet resultSet= DatabaseDriver.db_executor("select Taks.*,Employees.* from Taks INNER JOIN Employees on Taks.manager=Employees.id where manager='"+session.getAttribute("id")+"'",false);
         ArrayList<Task> taskArrayList=new ArrayList<>();
-
+        request.removeAttribute("tasks");
         while (resultSet.next()){
             taskArrayList.add(new Task(resultSet.getString("id"),resultSet.getString("task_name"),
-                    resultSet.getString("manager"),resultSet.getString("status"),
+                    resultSet.getString("first_name")+" "+resultSet.getString("last_name"),resultSet.getString("status"),
                     resultSet.getString("hours"),resultSet.getString("description")
                     ));
         }
@@ -43,4 +48,8 @@ public class TasksAction extends Action {
 
     }
 
+
+    public ActionForward ext(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception{
+        return mapping.findForward("tt");
+    }
 }

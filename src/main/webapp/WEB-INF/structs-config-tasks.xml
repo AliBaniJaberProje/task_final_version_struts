@@ -10,7 +10,11 @@
 
             </form-property>
         </form-bean>
+
     </form-beans>
+
+
+
 
     <action-mappings>
         <action path="/tasks"
@@ -19,8 +23,17 @@
                 scope="request">
             <forward name="tasks" path="/pages/tasks.jsp"/>
 
-
         </action>
+
+
+<!--        <action path="/addTasks"-->
+<!--                type="com.task_finalVersion.struts.action.TasksAction"-->
+<!--                name="addTask"-->
+<!--                parameter="ext"-->
+<!--                scope="request">-->
+<!--            <forward name="tasks" path="/pages/home.jsp"/>-->
+
+<!--        </action>-->
 
     </action-mappings>
 

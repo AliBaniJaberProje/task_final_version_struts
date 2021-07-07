@@ -7,14 +7,10 @@ import java.util.HashMap;
 
 public class Auth {
 
-
-    public static HashMap<String, String> isAuthorized(String email, String password)
-    {
-
+    public static HashMap<String, String> isAuthorized(String email, String password) {
         ResultSet resultSet= DatabaseDriver.db_executor("SELECT id,role FROM `Employees` WHERE email='"+email+"' and password='"+password+"'",false);
         HashMap<String, String> loginResult = new HashMap<String, String>();
         try {
-
             while (resultSet.next()){
                 loginResult.put("role", resultSet.getString("role"));
                 loginResult.put("id", resultSet.getString("id"));
@@ -26,12 +22,7 @@ public class Auth {
             return  null;
 
         }
-
-
         return null;
     }
-
-
-
 
 }

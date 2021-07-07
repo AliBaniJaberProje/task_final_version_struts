@@ -1,16 +1,15 @@
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="com.task_finalVersion.data.model.Task" %>
-<%@ page import="com.task_finalVersion.data.database.DatabaseDriver" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: ali_jaber
   Date: 7/4/21
   Time: 2:21 AM
   To change this template use File | Settings | File Templates.
 --%>
+
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.task_finalVersion.data.model.Task" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="html" uri="http://struts.apache.org/tags-html" %>
-
-
 <%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
 <%@taglib uri="http://struts.apache.org/tags-logic" prefix="logic"%>
 
@@ -29,13 +28,21 @@
         var selectElement = event.target;
 
         var value = selectElement.value;
+        //document.getElementById("statusForm").submit();
 
-        <%
-         System.out.println("234234qw34234234");
-         %>
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {
+
+        }
 
 
-        alert(value)
+        xhttp.open("POST", "tasks.do");
+        xhttp.setRequestHeader("status", value);
+
+
+
+        xhttp.send();
+        // alert(value)
     }
 </script>
 
@@ -48,8 +55,6 @@
     <table class="table caption-top">
         <caption>List of tasks</caption>
         <thead>
-
-
 
         <tr>
             <th scope="col">Id</th>
@@ -65,7 +70,7 @@
         <%
             ArrayList<Task> taskArrayList= (ArrayList<Task>) request.getAttribute("tasks");
             for(int i=0;i<taskArrayList.size();i++){
-
+                       pageContext.setAttribute("status",taskArrayList.get(i).status);
                 %>
         <tr>
 
@@ -74,45 +79,60 @@
             <td> <%=taskArrayList.get(i).manager %></td>
             <td>
 
-            <select  id="<%=taskArrayList.get(i).id %> " name="status"  class="custom-select"
-                 onchange="handleSelectChange(event)">
+              <form method="POST" action="tasks.do" id="statusForm">
+                  <select   name="status"  class="custom-select"
+                           onchange="handleSelectChange(event)">
+                      <%
+                          if(taskArrayList.get(i).status.equals("Done")){
+                              %>
+                      <option value="Done,<%=taskArrayList.get(i).id %>" selected >Done</option>
+                       <%
+                          } else
+                          {
+                              %>
+                      <option value="Done,<%=taskArrayList.get(i).id %>" >Done</option>
+                      <%
+                          }
+                      %>
+                      <%
+                          if(taskArrayList.get(i).status.equals("Completed")){
+                      %>
+                      <option value="Completed,<%=taskArrayList.get(i).id %>"  selected>Completed</option>
+                      <%
+                      } else
+                      {
+                      %>
+                      <option value="Completed,<%=taskArrayList.get(i).id %>">Completed</option>
+                      <%
+                          }
+                      %>
+                      <%
+                          if(taskArrayList.get(i).status.equals("In Progress")){
+                      %>
+                      <option value="In Progress,<%=taskArrayList.get(i).id %>" selected >In Progress</option>
+                      <%
+                      } else
+                      {
+                      %>
 
-                 <option value="Done,<%=taskArrayList.get(i).id %>"  >Done</option>
-                 <option value="Completed,<%=taskArrayList.get(i).id %>" >Completed</option>
-                 <option value="In Progress,<%=taskArrayList.get(i).id %>" >In Progress</option>
-            </select>
+                      <option value="In Progress,<%=taskArrayList.get(i).id %>">In Progress</option>
+                      <%
+                          }
+                      %>
 
 
+
+                  </select>
+              </form>
 
             </td>
-            <td> <%=taskArrayList.get(i).hour %></td>
+            <td> <%=taskArrayList.get(i).hour%></td>
             <td> <%=taskArrayList.get(i).description %></td>
         </tr>
 
         <%
-
             }
         %>
-
-
-
-<%--        <logic:iterate name="tasks" id="tasksId">--%>
-
-
-<%--            <tr>--%>
-<%--                <th scope="row">--%>
-<%--                <td> List Users <bean:write name="tasksId" property="id"/></td>--%>
-<%--                <td>@mdo</td>--%>
-<%--                <td>@mdo</td>--%>
-<%--                <td>Mark</td>--%>
-<%--                <td>Otto</td>--%>
-<%--            </tr>--%>
-
-
-
-<%--        </logic:iterate>--%>
-
-
 
         </tbody>
     </table>
