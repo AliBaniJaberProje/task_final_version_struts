@@ -6,7 +6,7 @@ public class AddTaskForm extends ActionForm {
 
 
     private String taskName;
-    private String id_employee;
+    private String idEmployee;
     private String hour;
     private String descraption;
 
@@ -18,12 +18,12 @@ public class AddTaskForm extends ActionForm {
         this.taskName = taskName;
     }
 
-    public String getId_employee() {
-        return id_employee;
+    public String getIdEmployee() {
+        return idEmployee;
     }
 
-    public void setId_employee(String id_employee) {
-        this.id_employee = id_employee;
+    public void setIdEmployee(String idEmployee) {
+        this.idEmployee = idEmployee;
     }
 
     public String getHour() {
@@ -41,4 +41,6 @@ public class AddTaskForm extends ActionForm {
     public void setDescraption(String descraption) {
         this.descraption = descraption;
     }
+
+
 }

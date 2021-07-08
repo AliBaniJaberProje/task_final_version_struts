@@ -1,21 +1,16 @@
 package com.task_finalVersion.data.ORM;
-
 import com.task_finalVersion.data.database.DatabaseDriver;
 import com.task_finalVersion.data.model.Employee;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 
-public class Manager extends Employee {
+public class Manager {
     String idManager;
 
-    public Manager(String firstName, String lastName, String imgURL, String birthday, String startJobDate, String role, String password, String id , String idManager) {
-        super();
-        this.idManager=idManager;
-    }
+
     public Manager(String idManager){
-        super();
+
         this.idManager=idManager;
     }
     public void saveNewEmployee(Employee employee) throws SQLException {

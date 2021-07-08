@@ -27,7 +27,6 @@ public class TasksAction extends Action {
         TasksForm tasksForm = (TasksForm) form;
         HttpSession session = request.getSession();
 
-        //select Taks.*,Employees.* from Taks INNER JOIN Employees on Taks.manager=Employees.id where manager=1
         ResultSet resultSet= DatabaseDriver.db_executor("select Taks.*,Employees.* from Taks INNER JOIN Employees on Taks.manager=Employees.id where manager='"+session.getAttribute("id")+"'",false);
         ArrayList<Task> taskArrayList=new ArrayList<>();
         request.removeAttribute("tasks");

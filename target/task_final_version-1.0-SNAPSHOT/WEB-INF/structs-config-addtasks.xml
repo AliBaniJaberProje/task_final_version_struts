@@ -5,24 +5,23 @@
 
 <struts-config>
 
-<!--    <form-beans>-->
-<!--        <form-bean name="addTaskForm" type="com.task_finalVersion.struts.form.AddTaskForm">-->
-<!--            <form-property name="taskName" type="java.lang.String"/>-->
-<!--            <form-property name="id_employee" type="java.lang.String" />-->
-<!--            <form-property name="hour" type="java.lang.String"/>-->
-<!--            <form-property name="descraption" type="java.lang.String"/>-->
-
-<!--        </form-bean>-->
-<!--    </form-beans>-->
+    <form-beans>
+        <form-bean name="addTaskForm" type="com.task_finalVersion.struts.form.AddTaskForm">
+            <form-property name="taskName" type="java.lang.String"/>
+            <form-property name="idEmployee" type="java.lang.String" />
+            <form-property name="hour" type="java.lang.String"/>
+            <form-property name="descraption" type="java.lang.String"/>
+        </form-bean>
+    </form-beans>
 
     <action-mappings>
-        <action path="/addTasks"
+        <action path="/AddTasksPage"
                 type="com.task_finalVersion.struts.action.AddTaskAction"
                 name="addTaskForm"
-                scope="request">
-            <forward name="ttt" path="/pages/home.jsp"/>
+                scope="session"
+                >
+            <forward name="AddTasksPage" path="/pages/home.jsp"/>
         </action>
-
     </action-mappings>
 
 </struts-config>

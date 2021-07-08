@@ -1,12 +1,19 @@
 <%@ page import="java.util.HashMap" %>
 <%@ page import="java.util.Map" %>
-<%@ page import="com.task_finalVersion.data.ORM.Manager" %><%--
+<%@ page import="com.task_finalVersion.data.ORM.Manager" %>
+
+
+
+<%--
   Created by IntelliJ IDEA.
   User: ali_jaber
   Date: 7/3/21
   Time: 11:49 AM
   To change this template use File | Settings | File Templates.
 --%>
+
+
+
 <%@ taglib prefix="html" uri="http://struts.apache.org/tags-html" %>
 
 
@@ -31,11 +38,12 @@
 <%
     if(session.getAttribute("role").equals("manager")){
 
+
 %>
 
 <div class="row">
     <div class="col" style="margin: 20px">
-        <html:form styleClass="row g-3" action="addEmployee.do" method="POST">
+        <html:form styleClass="row g-3" action="addEmployee.do" >
             <label for="inputEmail4" class="form-label">first name </label>
             <html:text name="addEmployeeForm" property="firstname" styleClass="form-control" styleId="inputEmail4"/>
             <label for="inputPassword4" class="form-label">last name</label>
@@ -52,49 +60,40 @@
             <html:submit/>
         </html:form>
     </div>
-    <div class="col">
+    <div class="col" style="margin: 20px" >
 <%
     Manager manager=new Manager((String) session.getAttribute("id"));
-
     HashMap<String, HashMap<String,String>> emp=  manager.getMyEmployee();
 %>
-
-        <html:form styleClass="row g-3" action="addTasks.do" method="POST">
+        <html:form styleClass="row g-3" action="AddTasksPage.do" >
             <label for="inputEmail4" class="form-label">taskName</label>
             <html:text name="addTaskForm" property="taskName" styleClass="form-control" styleId="inputEmail4"/>
             <label for="inputPassword4" class="form-label">hour</label>
             <html:text name="addTaskForm" property="hour" styleClass="form-control" styleId="inputPassword4"/>
             <label for="email" class="form-label">descraption</label>
             <html:text name="addTaskForm" property="descraption" styleClass="form-control" styleId="email"/>
-
             <label for="EmployeeType" class="form-label">Employee</label>
-            <html:select name="addTaskForm" property="id_employee" styleClass="form-control" styleId="EmployeeType">
+            <html:select name="addTaskForm" property="idEmployee" styleClass="form-control" styleId="EmployeeType">
                 <%
                     for(Map.Entry<String, HashMap<String, String>> entry : emp.entrySet()) {
                         String key = entry.getKey();
                         HashMap value = entry.getValue();
                 %>
                 <html:option value="<%=key%>">
-
                 <%=value.get("username")%></html:option>
-
-
                 <%
                     }
                 %>
             </html:select>
+
+
             <html:submit/>
-
-
         </html:form>
     </div>
-
 </div>
 
 
-<%
-    }
-    %>
+<%}%>
 
 
 </body>

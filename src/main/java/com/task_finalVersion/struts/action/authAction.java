@@ -7,7 +7,6 @@ import javax.servlet.http.HttpSession;
 
 
 import com.task_finalVersion.data.ORM.Auth;
-import com.task_finalVersion.data.ORM.Manager;
 import com.task_finalVersion.struts.form.authForm;
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
