@@ -18,11 +18,13 @@
             <param-name>config</param-name>
             <param-value>
                 /WEB-INF/struts-config.xml,
+                /WEB-INF/structs-config-addtasks.xml,
+
+
                 /WEB-INF/structs-config-logout.xml,
                 /WEB-INF/structs-config-tasks.xml,
                 /WEB-INF/structs-config-employee.xml,
                 /WEB-INF/structs-config-team.xml,
-                /WEB-INF/structs-config-addtasks.xml
 
             </param-value>
         </init-param>
